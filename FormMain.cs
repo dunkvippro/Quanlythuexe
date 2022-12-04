@@ -16,10 +16,8 @@ namespace Quanlythuexe
         {
             InitializeComponent();
             
-        }
-
-
-        
+            
+        }      
 
         private void Quanlichuxe_bt_Click(object sender, EventArgs e)
         {
@@ -75,10 +73,6 @@ namespace Quanlythuexe
 
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
     
 }
