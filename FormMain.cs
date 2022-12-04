@@ -15,9 +15,7 @@ namespace Quanlythuexe
         public FormMain()
         {
             InitializeComponent();
-            Console.WriteLine("hello");
-            Console.WriteLine("hello");
-            Console.WriteLine("hello");
+            
 
 
         }      
