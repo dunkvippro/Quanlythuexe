@@ -15,9 +15,7 @@ namespace Quanlythuexe
         public FormMain()
         {
             InitializeComponent();
-            
-
-
+         
         }      
 
         private void Quanlichuxe_bt_Click(object sender, EventArgs e)

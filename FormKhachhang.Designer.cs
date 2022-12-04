@@ -80,7 +80,7 @@
             this.tB_idkhachhang.Name = "tB_idkhachhang";
             this.tB_idkhachhang.Size = new System.Drawing.Size(247, 22);
             this.tB_idkhachhang.TabIndex = 19;
-            this.tB_idkhachhang.TextChanged += new System.EventHandler(this.tB_idkhachhang_TextChanged);
+            
             // 
             // label1
             // 

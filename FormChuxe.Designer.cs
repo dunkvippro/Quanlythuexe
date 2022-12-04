@@ -196,7 +196,7 @@
             this.tB_biensoxe.ReadOnly = true;
             this.tB_biensoxe.Size = new System.Drawing.Size(227, 22);
             this.tB_biensoxe.TabIndex = 36;
-            this.tB_biensoxe.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // panel1
             // 
