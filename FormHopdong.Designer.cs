@@ -144,7 +144,7 @@
             this.dTB_ngaytra.Name = "dTB_ngaytra";
             this.dTB_ngaytra.Size = new System.Drawing.Size(168, 22);
             this.dTB_ngaytra.TabIndex = 30;
-            this.dTB_ngaytra.ValueChanged += new System.EventHandler(this.dTB_ngaytra_ValueChanged);
+            
             // 
             // tB_phithue
             // 
@@ -171,7 +171,7 @@
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 33;
             this.label6.Text = "Ngày trả";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            
             // 
             // label7
             // 
@@ -273,7 +273,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(372, 252);
             this.panel3.TabIndex = 44;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            
             // 
             // BT_traxe
             // 

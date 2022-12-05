@@ -19,6 +19,11 @@ namespace Quanlythuexe
         SqlDataAdapter adapter = new SqlDataAdapter();
 
         DataTable datatb = new DataTable();
+        // load data to grid
+        public FormHopdong()
+        {
+            InitializeComponent();
+        }
         public void Loaddata()
         {
             SqlConnection connection= new  SqlConnection(chuoiketnoi);
@@ -33,12 +38,6 @@ namespace Quanlythuexe
             fillcB_idcar();
 
         }
-
-        public FormHopdong()
-        {
-            InitializeComponent();
-        }
-
         private void Hopdong_Load(object sender, EventArgs e)
         {
             connection = new SqlConnection(chuoiketnoi);
@@ -49,6 +48,7 @@ namespace Quanlythuexe
             GridHopdong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        //fill data
         public void fillcB_idcar()
         {
             SqlConnection connection1 = new SqlConnection(chuoiketnoi);
@@ -61,11 +61,8 @@ namespace Quanlythuexe
             datatb.Columns.Add("IDcar", typeof(string));
             datatb.Load(reader);
             cB_idcar.ValueMember = "IDcar";
-            cB_idcar.DataSource = datatb;
-
-            
+            cB_idcar.DataSource = datatb;           
             connection1.Close();
-
         }
         public void fillcB_idkhachhang()
         {
@@ -138,6 +135,42 @@ namespace Quanlythuexe
 
             connection2.Close();
         }
+        private void resetData()
+        {
+            cB_idcar.Text = null;
+            tB_biensoxe.Text = null;
+            tB_idchuxe.Text = null;
+            cB_idnguoithue.Text = null;
+            dTP_ngaythue.Text = "01/01/2023";
+            dTB_ngaytra.Text = "01/01/2023";
+            tB_phithue.Text = null;
+        }
+        private void GridHopdong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = GridHopdong.CurrentRow.Index;
+            cB_idcar.Text = GridHopdong.Rows[i].Cells[0].Value.ToString();
+            tB_biensoxe.Text = GridHopdong.Rows[i].Cells[1].Value.ToString();
+            tB_idchuxe.Text = GridHopdong.Rows[i].Cells[2].Value.ToString();
+            cB_idnguoithue.Text = GridHopdong.Rows[i].Cells[3].Value.ToString();
+            dTP_ngaythue.Text = GridHopdong.Rows[i].Cells[4].Value.ToString();
+            dTB_ngaytra.Text = GridHopdong.Rows[i].Cells[5].Value.ToString();       
+            tB_phithue.Text = String.Format("{0:0}", GridHopdong.Rows[i].Cells[6].Value);
+        }
+        private void cB_idcar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            filltB_Biensoxe();
+            filltB_IDchuxe();
+            filltB_Giathue();
+        }
+        private void ReloadData()
+        {
+            fillcB_idcar();
+            fillcB_idkhachhang();
+            Loaddata();
+            resetData();
+        }
+        //status update
         public void Capnhatdathuexe()
         {
             SqlConnection connection5 = new SqlConnection(chuoiketnoi);
@@ -156,126 +189,47 @@ namespace Quanlythuexe
             cmd.ExecuteNonQuery();
             connection7.Close();
         }
-        private void bt_back_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
 
+        //button
+        
         private void BT_them_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-
-
-            command.CommandText = "insert into Quanlyhopdong values('" + cB_idcar.Text + "','" + tB_biensoxe.Text + "','" + tB_idchuxe.Text + "', '" + cB_idnguoithue.Text + "','" + dTP_ngaythue.Text + "','" + dTB_ngaytra.Text + "', '"+ tB_phithue.Text+"')";
+            Hopdong hd = new Hopdong(cB_idcar.Text, tB_biensoxe.Text, tB_idchuxe.Text, cB_idnguoithue.Text, dTP_ngaythue.Text, dTB_ngaytra.Text, long.Parse(tB_phithue.Text));
+            hd.ThemHD();
             Capnhatdathuexe();
-            fillcB_idcar();
-            fillcB_idkhachhang();
-            command.ExecuteNonQuery();
-            Loaddata();
-            resetData();
+            ReloadData();
         }
 
         private void BT_sua_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-
-
-            command.CommandText = "UPDATE Quanlyhopdong SET Biensoxe = N'" + tB_biensoxe.Text + "' , IDchuxe = N'" + tB_idchuxe.Text + "' ,IDkhachhang= N'" + tB_biensoxe.Text + "' ,Ngaythue =  '" + dTP_ngaythue.Text + "' , Ngaytra = N'" + dTB_ngaytra.Text + "',Phithue =  N'" + tB_phithue.Text + "' WHERE IDcar = '" + cB_idcar.Text + "' ";
-            command.ExecuteNonQuery();
-            Loaddata();
+            Hopdong hd = new Hopdong(cB_idcar.Text, tB_biensoxe.Text, tB_idchuxe.Text, cB_idnguoithue.Text, dTP_ngaythue.Text, dTB_ngaytra.Text, long.Parse(tB_phithue.Text));
+            hd.SuaHD();
+            ReloadData();
         }
 
         private void BT_xoa_Click(object sender, EventArgs e)
         {
-            SqlConnection connection8 = new SqlConnection(chuoiketnoi);
-            connection8.Open();
-            command = connection8.CreateCommand();
-
-
-            command.CommandText = "DELETE FROM Quanlyhopdong WHERE IDcar = '" + cB_idcar.Text + "' ";
-            command.ExecuteNonQuery();
+            Hopdong hd = new Hopdong(cB_idcar.Text);
+            hd.XoaHD();
             Capnhatchuachothue();
-            fillcB_idcar();
-            fillcB_idkhachhang();
-            Loaddata();
-            connection8.Close();
-            
-
+            ReloadData();         
         }
-
-        private void resetData()
+        private void bt_back_Click(object sender, EventArgs e)
         {
-            cB_idcar.Text = null;
-            tB_biensoxe.Text = null;
-            tB_idchuxe.Text = null;
-            cB_idnguoithue.Text = null;
-            dTP_ngaythue.Text = "01/01/2023";
-            dTB_ngaytra.Text = "01/01/2023";
-            tB_phithue.Text = null;
-
+            this.Hide();
         }
-
-
         private void BT_reset_Click(object sender, EventArgs e)
         {
-            cB_idcar.Text = null;
-            tB_biensoxe.Text = null;
-            tB_idchuxe.Text = null;
-            cB_idnguoithue.Text = null;
-            dTP_ngaythue.Text = "01/01/2023";
-            dTB_ngaytra.Text = "01/01/2023";
-            tB_phithue.Text = null;
-        }
-
-        private void GridHopdong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i;
-            i = GridHopdong.CurrentRow.Index;
-            cB_idcar.Text = GridHopdong.Rows[i].Cells[0].Value.ToString();
-            tB_biensoxe.Text = GridHopdong.Rows[i].Cells[1].Value.ToString();
-            tB_idchuxe.Text = GridHopdong.Rows[i].Cells[2].Value.ToString();
-            cB_idnguoithue.Text = GridHopdong.Rows[i].Cells[3].Value.ToString();
-            dTP_ngaythue.Text = GridHopdong.Rows[i].Cells[4].Value.ToString();
-            dTB_ngaytra.Text = GridHopdong.Rows[i].Cells[5].Value.ToString();
-            //tB_phithue.Text = GridHopdong.Rows[i].Cells[6].Value.ToString();
-            
-            tB_phithue.Text = String.Format( "{0:0}",GridHopdong.Rows[i].Cells[6].Value);
-        }
-
-        private void cB_idcar_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            filltB_Biensoxe();
-            filltB_IDchuxe();
-            filltB_Giathue();
-            
-        }
-
+            resetData();
+        }       
+        
         private void BT_traxe_Click(object sender, EventArgs e)
-        {
-            
-
-            FormChiphiphatsinh userform = new FormChiphiphatsinh(cB_idcar.Text.ToString(),cB_idnguoithue.Text.ToString(),tB_phithue.Text);
-            
+        {          
+            FormChiphiphatsinh userform = new FormChiphiphatsinh(cB_idcar.Text.ToString(),cB_idnguoithue.Text.ToString(),tB_phithue.Text);           
             userform.ShowDialog();
             this.Hide();
             Loaddata();
-            this.Show();
-                    
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dTB_ngaytra_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Show();                   
         }
     }
 }
