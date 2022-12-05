@@ -99,6 +99,10 @@
     <Compile Include="FormXe.Designer.cs">
       <DependentUpon>FormXe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Thanhtoan.cs" />
+    <Compile Include="Uudai.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Xe.cs" />
     <EmbeddedResource Include="FormChiphiphatsinh.resx">
       <DependentUpon>FormChiphiphatsinh.cs</DependentUpon>

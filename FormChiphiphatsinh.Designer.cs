@@ -109,7 +109,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(529, 74);
             this.panel3.TabIndex = 15;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            
             // 
             // panel2
             // 
@@ -120,7 +120,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(595, 220);
             this.panel2.TabIndex = 15;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+           
             // 
             // panel4
             // 
@@ -133,7 +133,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(252, 172);
             this.panel4.TabIndex = 18;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            
             // 
             // label10
             // 
@@ -143,7 +143,7 @@
             this.label10.Size = new System.Drawing.Size(101, 16);
             this.label10.TabIndex = 16;
             this.label10.Text = "Vấn đề đã thêm";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            
             // 
             // lB_cacvande
             // 
@@ -209,7 +209,7 @@
             this.label8.Size = new System.Drawing.Size(94, 16);
             this.label8.TabIndex = 9;
             this.label8.Text = "Chi phí phải trả";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // label9
             // 
@@ -226,8 +226,7 @@
             this.tB_chiphi.Name = "tB_chiphi";
             this.tB_chiphi.Size = new System.Drawing.Size(176, 22);
             this.tB_chiphi.TabIndex = 3;
-            this.tB_chiphi.TextChanged += new System.EventHandler(this.tB_chiphi_TextChanged);
-            // 
+            
             // cB_vandephatsinh
             // 
             this.cB_vandephatsinh.FormattingEnabled = true;

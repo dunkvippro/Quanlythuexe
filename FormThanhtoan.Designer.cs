@@ -129,7 +129,7 @@
             this.Grid1.RowTemplate.Height = 24;
             this.Grid1.Size = new System.Drawing.Size(543, 226);
             this.Grid1.TabIndex = 24;
-            this.Grid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid1_CellContentClick);
+           
             // 
             // panel1
             // 
@@ -141,7 +141,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 132);
             this.panel1.TabIndex = 25;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // label3
             // 
@@ -188,7 +188,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(280, 245);
             this.panel2.TabIndex = 27;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            
             // 
             // panel3
             // 
@@ -234,7 +234,7 @@
             this.tB_idhopdong.ReadOnly = true;
             this.tB_idhopdong.Size = new System.Drawing.Size(188, 22);
             this.tB_idhopdong.TabIndex = 29;
-            this.tB_idhopdong.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // label4
             // 
@@ -244,7 +244,7 @@
             this.label4.Size = new System.Drawing.Size(80, 16);
             this.label4.TabIndex = 30;
             this.label4.Text = "ID hợp đồng";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // label5
             // 
@@ -254,7 +254,7 @@
             this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 32;
             this.label5.Text = "ID xe";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            
             // 
             // tB_idxe
             // 
@@ -263,7 +263,7 @@
             this.tB_idxe.ReadOnly = true;
             this.tB_idxe.Size = new System.Drawing.Size(188, 22);
             this.tB_idxe.TabIndex = 31;
-            this.tB_idxe.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            
             // 
             // label6
             // 
@@ -290,7 +290,7 @@
             this.label7.Size = new System.Drawing.Size(103, 16);
             this.label7.TabIndex = 36;
             this.label7.Text = "Tên khách hàng";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            
             // 
             // tB_tenkhachhang
             // 
@@ -342,7 +342,7 @@
             this.label10.Size = new System.Drawing.Size(152, 16);
             this.label10.TabIndex = 42;
             this.label10.Text = "Tổng tiền cần thanh toán";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            
             // 
             // tB_tongtien
             // 
@@ -353,7 +353,7 @@
             this.tB_tongtien.Size = new System.Drawing.Size(250, 53);
             this.tB_tongtien.TabIndex = 41;
             this.tB_tongtien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tB_tongtien.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            
             // 
             // panel4
             // 
@@ -378,7 +378,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(465, 284);
             this.panel4.TabIndex = 43;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            
             // 
             // label11
             // 
@@ -397,7 +397,7 @@
             this.label12.Size = new System.Drawing.Size(35, 16);
             this.label12.TabIndex = 44;
             this.label12.Text = "VNĐ";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            
             // 
             // Thanhtoan
             // 

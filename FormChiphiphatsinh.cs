@@ -117,7 +117,7 @@ namespace Quanlythuexe
         }
         private void deletedatatB_tongtien()
         {
-            Console.Write(lB_cacvande.SelectedIndex);
+            
             long tong = sotienphaitra[lB_cacvande.SelectedIndex];
             Xoaptmang(sotienphaitra, lB_cacvande.SelectedIndex, soluongpt);
             soluongpt--;
@@ -191,39 +191,6 @@ namespace Quanlythuexe
             
             
         }
-
-        
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tB_chiphi_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        
+           
     }
 }

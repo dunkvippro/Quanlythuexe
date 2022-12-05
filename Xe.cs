@@ -32,6 +32,10 @@ namespace Quanlythuexe
             this.tinhTrangxe = tinhTrangxe;
             this.tinhTrangthue = tinhTrangthue;
         }
+        public Xe(string idCar)
+        {
+            this.idCar = idCar;
+        }
 
         public string IdCar { get; set; }
 
@@ -73,5 +77,24 @@ namespace Quanlythuexe
             command.ExecuteNonQuery();
             connection.Close();
         }
+        public void CapnhatTrangthaiXe(bool trangThai)
+        {
+            SqlConnection connection = new SqlConnection(chuoiketnoi);
+            connection.Open();
+            string query1 = "update Quanlyxe set Tinhtrangthue = N'" + "Đang cho thuê" + "' where IDcar = '" + idCar + "'";
+            string query2 =  "update Quanlyxe set Tinhtrangthue = N'" + "Chưa cho thuê" + "' where IDcar = '" + idCar + "'";
+
+            if (trangThai == true)
+            {
+                SqlCommand cmd = new SqlCommand(query1, connection);
+                cmd.ExecuteNonQuery();
+            }else
+            {
+                SqlCommand cmd = new SqlCommand(query2, connection);
+                cmd.ExecuteNonQuery();
+            }                     
+            connection.Close();
+        }
+
     }
 }

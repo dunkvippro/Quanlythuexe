@@ -17,7 +17,6 @@ namespace Quanlythuexe
             InitializeComponent();
          
         }      
-
         private void Quanlichuxe_bt_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -27,7 +26,6 @@ namespace Quanlythuexe
 
             this.Show();
         }
-
         private void Quanlihopdong_bt_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -37,7 +35,6 @@ namespace Quanlythuexe
 
             this.Show();
         }
-
         private void Quanlixe_bt_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -47,7 +44,6 @@ namespace Quanlythuexe
 
             this.Show();
         }
-
         private void Quanliuser_bt_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -56,12 +52,6 @@ namespace Quanlythuexe
             
             this.Show(); 
         }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Thanhtoan_bt_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -71,7 +61,5 @@ namespace Quanlythuexe
             this.Show();
 
         }
-
-    }
-    
+    }   
 }
