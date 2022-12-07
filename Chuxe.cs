@@ -15,7 +15,7 @@ namespace Quanlythuexe
         private string tenChuxe;
         private string soDienthoai;
 
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
+        public DataProvider dataProvider = new DataProvider();
         public Chuxe()
         {
         }
@@ -26,46 +26,24 @@ namespace Quanlythuexe
             this.idChuxe = idchuxe; 
             this.tenChuxe = tenchuxe;
             this.soDienthoai = sdt;
-
         }
 
         public void ThemCX()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "insert into Quanlychuxe values('" + idCar + "',N'" + bienSoxe + "',N'" + idChuxe + "', N'" + tenChuxe + "',N'" + soDienthoai + "' )";
 
-            command.CommandText = "insert into Quanlychuxe values('" + idCar + "',N'" + bienSoxe + "',N'" + idChuxe + "', N'" + tenChuxe + "',N'" + soDienthoai + "' )";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            dataProvider.ExecuteQuery(query);           
         }
         public void XoaCX()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
-
-            command.CommandText = "DELETE FROM Quanlychuxe WHERE IDchuxe = N'" + idChuxe + "' ";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            string query = "DELETE FROM Quanlychuxe WHERE IDchuxe = N'" + idChuxe + "' ";
+            dataProvider.ExecuteQuery(query);           
         }
         public void SuaCX()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "UPDATE Quanlychuxe SET  Biensoxe= N'" + bienSoxe + "' ,IDchuxe =  N'" + idChuxe + "', Tenchuxe = N'" + tenChuxe + "',Sdt = N'" + soDienthoai + "' WHERE IDcar= N'" + idCar + "' ";
 
-            command.CommandText = "UPDATE Quanlychuxe SET  Biensoxe= N'" + bienSoxe + "' ,IDchuxe =  N'" +idChuxe + "', Tenchuxe = N'" + tenChuxe + "',Sdt = N'" + soDienthoai + "' WHERE IDcar= N'" + idCar + "' ";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            dataProvider.ExecuteQuery(query);           
         }
-
-
     }
 }

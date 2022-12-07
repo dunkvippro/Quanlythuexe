@@ -109,7 +109,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(529, 74);
             this.panel3.TabIndex = 15;
-            
             // 
             // panel2
             // 
@@ -120,7 +119,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(595, 220);
             this.panel2.TabIndex = 15;
-           
             // 
             // panel4
             // 
@@ -133,7 +131,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(252, 172);
             this.panel4.TabIndex = 18;
-            
             // 
             // label10
             // 
@@ -143,7 +140,6 @@
             this.label10.Size = new System.Drawing.Size(101, 16);
             this.label10.TabIndex = 16;
             this.label10.Text = "Vấn đề đã thêm";
-            
             // 
             // lB_cacvande
             // 
@@ -209,7 +205,6 @@
             this.label8.Size = new System.Drawing.Size(94, 16);
             this.label8.TabIndex = 9;
             this.label8.Text = "Chi phí phải trả";
-            
             // 
             // label9
             // 
@@ -226,7 +221,7 @@
             this.tB_chiphi.Name = "tB_chiphi";
             this.tB_chiphi.Size = new System.Drawing.Size(176, 22);
             this.tB_chiphi.TabIndex = 3;
-            
+            // 
             // cB_vandephatsinh
             // 
             this.cB_vandephatsinh.FormattingEnabled = true;
@@ -236,7 +231,7 @@
             this.cB_vandephatsinh.TabIndex = 0;
             this.cB_vandephatsinh.SelectionChangeCommitted += new System.EventHandler(this.cB_vandephatsinh_SelectionChangeCommitted);
             // 
-            // Chiphiphatsinh
+            // FormChiphiphatsinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +239,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label1);
-            this.Name = "Chiphiphatsinh";
+            this.Name = "FormChiphiphatsinh";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chiphiphatsinh";
             this.Load += new System.EventHandler(this.Chiphiphatsinh_Load);

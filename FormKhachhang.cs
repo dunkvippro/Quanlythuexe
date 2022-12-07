@@ -13,8 +13,7 @@ namespace Quanlythuexe
 {
     public partial class FormKhachhang : Form
     {
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-       
+        public DataProvider dataProvider = new DataProvider();
         public FormKhachhang()
         {
             InitializeComponent();          
@@ -22,49 +21,34 @@ namespace Quanlythuexe
         //load data to grid
         void Loaddata()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable datatb = new DataTable();
-            SqlConnection connection= new SqlConnection(chuoiketnoi);
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM Quanlykhachhang";
-            adapter.SelectCommand = command;
-            datatb.Clear();
-            adapter.Fill(datatb);
+            string query = "SELECT * FROM Quanlykhachhang";            
+            DataTable datatb = dataProvider.ExecuteQuery_loaddata(query);          
             GridKhachhang.DataSource = datatb;
-
         }
         private void User_Load(object sender, EventArgs e)
-        {
-            SqlConnection connection;
-            connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
+        {           
             Loaddata();
             GridKhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-        }
-        
+        }      
         //button
         private void BT_them_Click(object sender, EventArgs e)
         {
             Khachhang kH = new Khachhang(tB_idkhachhang.Text, tB_name.Text, tB_diachi.Text, tB_sdt.Text);
             kH.ThemKH();
             Loaddata();
-        }
-        
+        }       
         private void BT_sua_Click(object sender, EventArgs e)
         {
             Khachhang kH = new Khachhang(tB_idkhachhang.Text, tB_name.Text, tB_diachi.Text, tB_sdt.Text);
             kH.SuaThongTinKH();
             Loaddata();
-        }
-        
+        }        
         private void BT_xoa_Click(object sender, EventArgs e)
         {
             Khachhang kH = new Khachhang(tB_idkhachhang.Text, tB_name.Text, tB_diachi.Text, tB_sdt.Text);
             kH.XoaKH();
             Loaddata();
         }
-
         private void BT_reset_Click(object sender, EventArgs e)
         {
             tB_idkhachhang.Text = null;
@@ -76,7 +60,6 @@ namespace Quanlythuexe
         {
             this.Hide();
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int i;

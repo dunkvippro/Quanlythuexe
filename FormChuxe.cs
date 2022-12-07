@@ -13,9 +13,8 @@ using System.Data.SqlClient;
 namespace Quanlythuexe
 {
     public partial class FormChuxe : Form
-    {        
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-        
+    {           
+        public DataProvider dataProvider = new DataProvider();
         public FormChuxe()
         {
             InitializeComponent();
@@ -23,22 +22,13 @@ namespace Quanlythuexe
         //load data
         void Loaddata()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable datatb = new DataTable();
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM Quanlychuxe";
-            adapter.SelectCommand = command;
-            datatb.Clear();
-            adapter.Fill(datatb);
+            string query = "SELECT * FROM Quanlychuxe";
+            DataTable datatb =dataProvider.ExecuteQuery_loaddata(query) ;                     
             GridChuxe.DataSource = datatb;
             fillcB();
         }
-
         private void Chuxe_Load(object sender, EventArgs e)
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
+        {         
             Loaddata();
             GridChuxe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -74,40 +64,24 @@ namespace Quanlythuexe
         {
             this.Hide();
         }
-
         //fill data
         public void fillcB()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-
-            string query1 = "select IDcar from Quanlyxe" ;          
-            SqlCommand cmd  = new SqlCommand(query1, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable datatb = new DataTable();
-            datatb.Columns.Add("IDcar",typeof(string));
-            datatb.Load(reader);
+            string query1 = "select IDcar from Quanlyxe" ;
+            string query2 = "IDcar";
+            DataTable datatb = dataProvider.ExecuteQuery_CBox(query1, query2);          
             cB_idcar.ValueMember = "IDcar";
             cB_idcar.DataSource = datatb;       
-            
-            connection.Close();
+
         }
         public void filltB()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-
-            string query = "select * from Quanlyxe where IDcar = '"+cB_idcar.Text+"' ";
-            SqlCommand cmd = new SqlCommand(query,connection);
-            DataTable datatt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(datatt);
+            string query = "select * from Quanlyxe where IDcar = '"+cB_idcar.Text+"' ";          
+            DataTable datatt = dataProvider.ExecuteQuery_TBox(query);          
             foreach(DataRow dataRow in datatt.Rows)
             {
                 tB_biensoxe.Text = dataRow["Biensoxe"].ToString();
-            }
-
-            connection.Close();
+            }         
         }
         private void GridChuxe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

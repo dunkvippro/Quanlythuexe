@@ -64,7 +64,7 @@
             this.bt_back.Name = "bt_back";
             this.bt_back.Size = new System.Drawing.Size(73, 23);
             this.bt_back.TabIndex = 18;
-            this.bt_back.Text = "<---";
+            this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
             this.bt_back.Click += new System.EventHandler(this.bt_back_Click);
             // 
@@ -144,7 +144,6 @@
             this.dTB_ngaytra.Name = "dTB_ngaytra";
             this.dTB_ngaytra.Size = new System.Drawing.Size(168, 22);
             this.dTB_ngaytra.TabIndex = 30;
-            
             // 
             // tB_phithue
             // 
@@ -171,7 +170,6 @@
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 33;
             this.label6.Text = "Ngày trả";
-            
             // 
             // label7
             // 
@@ -232,7 +230,9 @@
             // 
             // GridHopdong
             // 
+            this.GridHopdong.BackgroundColor = System.Drawing.SystemColors.Window;
             this.GridHopdong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridHopdong.GridColor = System.Drawing.SystemColors.Window;
             this.GridHopdong.Location = new System.Drawing.Point(477, 79);
             this.GridHopdong.Name = "GridHopdong";
             this.GridHopdong.RowHeadersWidth = 51;
@@ -243,6 +243,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.BT_traxe);
@@ -273,7 +274,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(372, 252);
             this.panel3.TabIndex = 44;
-            
             // 
             // BT_traxe
             // 
@@ -298,15 +298,18 @@
             this.panel2.Size = new System.Drawing.Size(372, 119);
             this.panel2.TabIndex = 41;
             // 
-            // Hopdong
+            // FormHopdong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.GridHopdong);
             this.Controls.Add(this.bt_back);
-            this.Name = "Hopdong";
+            this.Name = "FormHopdong";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hopdong";
             this.Load += new System.EventHandler(this.Hopdong_Load);

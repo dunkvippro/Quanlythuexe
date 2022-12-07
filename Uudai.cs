@@ -8,13 +8,11 @@ using System.Data;
 
 namespace Quanlythuexe
 {
-    public class Uudai : FormThanhtoan
+    public class Uudai 
     {
         private string tenUudai;
         private int phanTramGiam;
-
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-
+        public DataProvider dataProvider = new DataProvider();       
         public Uudai()
         {
         }
@@ -24,31 +22,21 @@ namespace Quanlythuexe
             this.phanTramGiam = phantramgiam;
 
         }
-
         public int PhanTramGiam { get => phanTramGiam; set => phanTramGiam = value; }
-
         public void ThemUD(){
-            
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            string query = "select * from Uudai where Uudai = N'" + tenUudai + "' ";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            DataTable datatt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(datatt);
+                       
+            string query = "select * from Uudai where Uudai = N'" + tenUudai + "' ";            
+            DataTable datatt = dataProvider.ExecuteQuery_TBox(query);          
             foreach (DataRow dataRow in datatt.Rows)
             {
                 this.phanTramGiam =(int)dataRow["Phantramgiam"];
-            }
-            connection.Close();
+            }           
         }
         public long TinhtienUD(long chiphithue)
         {
             long tongtien;
             tongtien =chiphithue- (chiphithue*phanTramGiam/100);
             return tongtien;
-        }
-
-
+        }    
     }
 }

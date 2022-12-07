@@ -13,117 +13,69 @@ namespace Quanlythuexe
 {
     public partial class FormHopdong : Form
     {
-       
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-        
-
+        public DataProvider dataProvider = new DataProvider();
         // load data to grid
         public FormHopdong()
         {
             InitializeComponent();
         }
         public void Loaddata()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable datatb = new DataTable();
-            SqlConnection connection= new  SqlConnection(chuoiketnoi);
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM Quanlyhopdong";
-            adapter.SelectCommand = command;
-            datatb.Clear();
-            adapter.Fill(datatb);
-            GridHopdong.DataSource = datatb;           
+        {           
+            string query = "SELECT * FROM Quanlyhopdong";            
+            GridHopdong.DataSource = dataProvider.ExecuteQuery_loaddata(query);    
             fillcB_idkhachhang();
             fillcB_idcar();
         }
         private void Hopdong_Load(object sender, EventArgs e)
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();                   
+        {                              
             Loaddata();
             resetData();
             GridHopdong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
         //fill data
         public void fillcB_idcar()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            string query1 = "select IDcar from Quanlyxe where Tinhtrangthue = N'" + "Chưa cho thuê" + "'";
-
-            SqlCommand cmd = new SqlCommand(query1, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable datatb = new DataTable();
-            datatb.Columns.Add("IDcar", typeof(string));
-            datatb.Load(reader);
+            string query = "select IDcar from Quanlyxe where Tinhtrangthue = N'" + "Chưa cho thuê" + "'";
+            string needAdd = "IDcar";
+            DataTable datatb = dataProvider.ExecuteQuery_CBox(query,needAdd);
             cB_idcar.ValueMember = "IDcar";
-            cB_idcar.DataSource = datatb;           
-            connection.Close();
+            cB_idcar.DataSource = datatb;                       
         }
         public void fillcB_idkhachhang()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
+        {            
             string query1 = "select IDcus from Quanlykhachhang";
-
-            SqlCommand cmd = new SqlCommand(query1, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable datatb = new DataTable();
-            datatb.Columns.Add("IDcus", typeof(string));
-            datatb.Load(reader);
+            string needAdd = "IDcus";          
+            DataTable datatb = dataProvider.ExecuteQuery_CBox(query1,needAdd);           
             cB_idnguoithue.ValueMember = "IDcus";
-            cB_idnguoithue.DataSource = datatb;
-            connection.Close();
+            cB_idnguoithue.DataSource = datatb;        
         }
         public void filltB_Biensoxe()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            string query = "select * from Quanlychuxe where IDcar = '" + cB_idcar.Text + "' ";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            DataTable datatt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(datatt);
-            foreach (DataRow dataRow in datatt.Rows)
+        {          
+            string query = "select * from Quanlychuxe where IDcar = '" + cB_idcar.Text + "' ";           
+            DataTable datatb =dataProvider.ExecuteQuery_TBox(query);          
+            foreach (DataRow dataRow in datatb.Rows)
             {
                 tB_biensoxe.Text = dataRow["Biensoxe"].ToString();
-            }
-            connection.Close();
+            }          
         }
         public void filltB_IDchuxe()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            string query = "select * from Quanlychuxe where IDcar = '" + cB_idcar.Text + "' ";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            DataTable datatt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(datatt);
-            foreach (DataRow dataRow in datatt.Rows)
+        {           
+            string query = "select * from Quanlychuxe where IDcar = '" + cB_idcar.Text + "' ";          
+            DataTable datatb = dataProvider.ExecuteQuery_TBox(query);       
+            foreach (DataRow dataRow in datatb.Rows)
             {
                 tB_idchuxe.Text = dataRow["IDchuxe"].ToString();
             }
-
-
-            connection.Close();
+            
         }
         public void filltB_Giathue()
-        {
-            SqlConnection connection2 = new SqlConnection(chuoiketnoi);
-            connection2.Open();
+        {           
             string query = "select * from Quanlyxe where IDcar = '" + cB_idcar.Text + "' ";
-            SqlCommand cmd = new SqlCommand(query, connection2);
-            DataTable datatt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(datatt);
-           
-            foreach (DataRow dataRow in datatt.Rows)
-            {
-                             
+            DataTable datatb = dataProvider.ExecuteQuery_TBox(query);
+            foreach (DataRow dataRow in datatb.Rows)
+            {                            
                 tB_phithue.Text = String.Format( "{0:0}", dataRow["Giathue"]);
-            }
-            connection2.Close();
+            }         
         }
         private void resetData()
         {
@@ -159,8 +111,7 @@ namespace Quanlythuexe
             fillcB_idkhachhang();
             Loaddata();
             resetData();
-        }
-     
+        }     
         //button        
         private void BT_them_Click(object sender, EventArgs e)
         {
@@ -178,7 +129,6 @@ namespace Quanlythuexe
             hd.SuaHD();
             ReloadData();
         }
-
         private void BT_xoa_Click(object sender, EventArgs e)
         {
             Hopdong hd = new Hopdong(cB_idcar.Text);
@@ -196,7 +146,6 @@ namespace Quanlythuexe
         {
             resetData();
         }       
-        
         private void BT_traxe_Click(object sender, EventArgs e)
         {          
             FormChiphiphatsinh userform = new FormChiphiphatsinh(cB_idcar.Text.ToString(),cB_idnguoithue.Text.ToString(),tB_phithue.Text);           

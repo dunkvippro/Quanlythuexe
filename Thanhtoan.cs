@@ -12,17 +12,16 @@ namespace Quanlythuexe
         private string idKhachhang;
         private long tongTien;
         private string idHopdong;
-
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-
+        private string idCar;
         public Thanhtoan()
         {
         }
-        public Thanhtoan(string idkhachhang,long tongtien,string idhopdong)
+        public Thanhtoan(string idkhachhang,long tongtien,string idhopdong,string idcar)
         {
             this.idKhachhang = idkhachhang;
             this.tongTien  = tongtien;
             this.idHopdong = idhopdong;
+            this.idCar = idcar;
         }
         public Thanhtoan(string idhopdong)
         {
@@ -30,19 +29,17 @@ namespace Quanlythuexe
         }
         public void XacNhanTT()
         {
-            FormXacNhanThanhToan xacnhanthanhtoan = new FormXacNhanThanhToan(idKhachhang, tongTien, idHopdong);
+            FormXacNhanThanhToan xacnhanthanhtoan = new FormXacNhanThanhToan(idKhachhang, tongTien, idHopdong,idCar);
             xacnhanthanhtoan.ShowDialog();
 
         }
         public void XoaHopdong()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "DELETE FROM Quanlythanhtoan WHERE IDhopdong = N'" + idHopdong + "' ";
-            command.ExecuteNonQuery();
-            connection.Close();
+            DataProvider dataProvider = new DataProvider();
+
+            string query = "DELETE FROM Quanlythanhtoan WHERE IDhopdong = N'" + idHopdong + "' ";
+
+            dataProvider.ExecuteQuery(query);           
         }
-    }
-    
+    }   
 }

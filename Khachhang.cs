@@ -14,7 +14,7 @@ namespace Quanlythuexe
         private string diaChi;
         private string sdt;
 
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
+        public DataProvider dataProvider = new DataProvider();
         public Khachhang()
         {
         }
@@ -25,42 +25,23 @@ namespace Quanlythuexe
             this.diaChi = diaChi;
             this.sdt = sdt;
         }
-
         public void ThemKH()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "insert into Quanlykhachhang values('" + idCus + "',N'" + tenKhachhang + "',N'" + diaChi + "', N'" + sdt + "' )";
 
-            command.CommandText = "insert into Quanlykhachhang values('" + idCus + "',N'" + tenKhachhang + "',N'" + diaChi + "', N'" + sdt + "' )";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            dataProvider.ExecuteQuery(query);           
         }
         public void XoaKH()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "DELETE FROM Quanlykhachhang WHERE IDcus = N'" + idCus + "' ";
 
-            command.CommandText = "DELETE FROM Quanlykhachhang WHERE IDcus = N'" + idCus + "' ";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            dataProvider.ExecuteQuery(query);           
         }
         public void SuaThongTinKH()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "UPDATE Quanlykhachhang SET Tenkhachhang= N'" + tenKhachhang + "' ,Diachi= N'" + diaChi + "' ,Sdt =  N'" + sdt + "' WHERE IDcus = N'" + idCus + "'";
 
-            command.CommandText = "UPDATE Quanlykhachhang SET Tenkhachhang= N'" + tenKhachhang + "' ,Diachi= N'" + diaChi + "' ,Sdt =  N'" + sdt + "' WHERE IDcus = N'" + idCus + "'";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            dataProvider.ExecuteQuery(query);           
         }
     }
 }

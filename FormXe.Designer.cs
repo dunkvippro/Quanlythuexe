@@ -109,7 +109,6 @@
             this.label1.Size = new System.Drawing.Size(37, 16);
             this.label1.TabIndex = 6;
             this.label1.Text = "ID xe";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -190,7 +189,7 @@
             this.bt_back.Name = "bt_back";
             this.bt_back.Size = new System.Drawing.Size(73, 23);
             this.bt_back.TabIndex = 17;
-            this.bt_back.Text = "<---";
+            this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
             this.bt_back.Click += new System.EventHandler(this.bt_back_Click);
             // 
@@ -209,7 +208,6 @@
             this.tB_biensoxe.Name = "tB_biensoxe";
             this.tB_biensoxe.Size = new System.Drawing.Size(197, 22);
             this.tB_biensoxe.TabIndex = 18;
-            this.tB_biensoxe.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel1
             // 
@@ -262,10 +260,10 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(260, 117);
             this.panel2.TabIndex = 21;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Window;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel1);
@@ -273,19 +271,21 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(303, 555);
             this.panel3.TabIndex = 22;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // Xe
+            // FormXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_back);
             this.Controls.Add(this.GridXe);
             this.KeyPreview = true;
-            this.Name = "Xe";
+            this.Name = "FormXe";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xe";
             this.Load += new System.EventHandler(this.Xe_Load);

@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chuxe.cs" />
+    <Compile Include="Danhgia.cs" />
+    <Compile Include="DataProvider.cs" />
     <Compile Include="FormChiphiphatsinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,9 +102,7 @@
       <DependentUpon>FormXe.cs</DependentUpon>
     </Compile>
     <Compile Include="Thanhtoan.cs" />
-    <Compile Include="Uudai.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Uudai.cs" />
     <Compile Include="Xe.cs" />
     <EmbeddedResource Include="FormChiphiphatsinh.resx">
       <DependentUpon>FormChiphiphatsinh.cs</DependentUpon>

@@ -59,12 +59,13 @@
             this.bt_back.Name = "bt_back";
             this.bt_back.Size = new System.Drawing.Size(73, 23);
             this.bt_back.TabIndex = 18;
-            this.bt_back.Text = "<---";
+            this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
             this.bt_back.Click += new System.EventHandler(this.bt_back_Click);
             // 
             // GridChuxe
             // 
+            this.GridChuxe.BackgroundColor = System.Drawing.SystemColors.Window;
             this.GridChuxe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridChuxe.Location = new System.Drawing.Point(418, 72);
             this.GridChuxe.Name = "GridChuxe";
@@ -196,7 +197,6 @@
             this.tB_biensoxe.ReadOnly = true;
             this.tB_biensoxe.Size = new System.Drawing.Size(227, 22);
             this.tB_biensoxe.TabIndex = 36;
-            
             // 
             // panel1
             // 
@@ -230,6 +230,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Window;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel1);
@@ -238,16 +239,18 @@
             this.panel3.Size = new System.Drawing.Size(348, 546);
             this.panel3.TabIndex = 39;
             // 
-            // Chuxe
+            // FormChuxe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.GridChuxe);
             this.Controls.Add(this.bt_back);
-            this.Name = "Chuxe";
+            this.Name = "FormChuxe";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chuxe";
             this.Load += new System.EventHandler(this.Chuxe_Load);

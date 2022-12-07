@@ -15,14 +15,11 @@ namespace Quanlythuexe
         private long giaThue;
         private string tinhTrangthue;
         private string tinhTrangxe;
-       
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-
+           
+        public DataProvider dataProvider = new DataProvider();
         public Xe()
         {
-
         }
-
         public Xe(string idCar,string hangXe,string bienSoxe,long giaThue,string tinhTrangxe,string tinhTrangthue)
         {
             this.idCar = idCar;
@@ -40,61 +37,37 @@ namespace Quanlythuexe
         public string IdCar { get; set; }
 
         public void ThemXe()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+        {          
+            string query = "insert into Quanlyxe values('" + idCar + "',N'" + bienSoxe + "', N'" + hangXe + "','" + giaThue + "',N'" + tinhTrangxe + "',N'" + tinhTrangthue + "')";
 
-            command.CommandText = "insert into Quanlyxe values('" + idCar + "',N'" + bienSoxe  + "', N'" + hangXe + "','" + giaThue + "',N'" + tinhTrangxe + "',N'" + tinhTrangthue + "')";
-
-            command.ExecuteNonQuery();
-            connection.Close();          
+            dataProvider.ExecuteQuery(query);        
         }
-
         public void XoaXe()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "DELETE FROM Quanlyxe WHERE IDcar = '" + IdCar + "' ";
 
-            command.CommandText = "DELETE FROM Quanlyxe WHERE IDcar = '" + IdCar + "' ";
-
-            command.ExecuteNonQuery();       
-            connection.Close();
+            dataProvider.ExecuteQuery(query);           
         }
-
         public void SuaThongTinXe()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            SqlCommand command;
-            command = connection.CreateCommand();
+            string query = "UPDATE Quanlyxe SET Hangxe= N'" + hangXe + "' ,Biensoxe= N'" + bienSoxe + "' ,Giathue =  '" + giaThue + "' , Tinhtrangxe = N'" + tinhTrangxe + "',Tinhtrangthue =  N'" + tinhTrangthue + "' WHERE IDcar = '" + idCar + "' ";
 
-            command.CommandText = "UPDATE Quanlyxe SET Hangxe= N'" + hangXe + "' ,Biensoxe= N'" + bienSoxe + "' ,Giathue =  '" + giaThue + "' , Tinhtrangxe = N'" + tinhTrangxe + "',Tinhtrangthue =  N'" + tinhTrangthue + "' WHERE IDcar = '" + idCar + "' ";
-
-            command.ExecuteNonQuery();
-            connection.Close();
+            dataProvider.ExecuteQuery(query);
+            
         }
         public void CapnhatTrangthaiXe(bool trangThai)
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
             string query1 = "update Quanlyxe set Tinhtrangthue = N'" + "Đang cho thuê" + "' where IDcar = '" + idCar + "'";
-            string query2 =  "update Quanlyxe set Tinhtrangthue = N'" + "Chưa cho thuê" + "' where IDcar = '" + idCar + "'";
+            string query2 = "update Quanlyxe set Tinhtrangthue = N'" + "Chưa cho thuê" + "' where IDcar = '" + idCar + "'";
 
             if (trangThai == true)
             {
-                SqlCommand cmd = new SqlCommand(query1, connection);
-                cmd.ExecuteNonQuery();
-            }else
+                dataProvider.ExecuteQuery(query1);
+            }
+            else
             {
-                SqlCommand cmd = new SqlCommand(query2, connection);
-                cmd.ExecuteNonQuery();
-            }                     
-            connection.Close();
+                dataProvider.ExecuteQuery(query2);
+            }                                 
         }
-
     }
 }

@@ -13,21 +13,16 @@ namespace Quanlythuexe
 {
     public partial class FormThanhtoan : Form
     {      
-        string chuoiketnoi = @"Data Source=DUNK\SQLEXPRESS;Initial Catalog=Quanlythuexe;Integrated Security=True";
-             
+        public DataProvider dataProvider = new DataProvider();
         public FormThanhtoan()
         {
             InitializeComponent();           
         }
-
         // load data to grid
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-
-            LoaddataGrid1();
-            LoaddataGrid2();
+            LoaddataGrid();
+            LoaddataGridDanhgia();
             fillcB_idcar();
             fillcB_idkhachhang();
             fillcB_uudai();
@@ -35,121 +30,69 @@ namespace Quanlythuexe
             Grid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
-        void LoaddataGrid1()
+        void LoaddataGrid()
         {
-            SqlConnection connectionGrid1 = new SqlConnection(chuoiketnoi);
-            SqlCommand commandGrid1 = connectionGrid1.CreateCommand();
-
-            commandGrid1.CommandText = "SELECT * FROM Quanlythanhtoan";
-            DataTable datatbGrid1 = new DataTable();
-            SqlDataAdapter adapterGrid1 = new SqlDataAdapter();
-            adapterGrid1.SelectCommand = commandGrid1;
-            datatbGrid1.Clear();
-            adapterGrid1.Fill(datatbGrid1);
-            Grid1.DataSource = datatbGrid1;
-
-        }
-        void LoaddataGrid2()
+            string query = "SELECT * FROM Quanlythanhtoan";
+            DataTable datatbGrid = dataProvider.ExecuteQuery_loaddata(query);           
+            Grid1.DataSource = datatbGrid;           
+        }   
+        void LoaddataGridDanhgia()
         {
-            SqlConnection connectionGrid2 = new SqlConnection(chuoiketnoi);
-            SqlCommand commandGrid2 = connectionGrid2.CreateCommand();
-
-            commandGrid2.CommandText = "SELECT * FROM Quanlythanhtoan";
-            DataTable datatbGrid2 = new DataTable();
-            SqlDataAdapter adapterGrid2 = new SqlDataAdapter();
-            adapterGrid2.SelectCommand = commandGrid2;
-            datatbGrid2.Clear();
-            adapterGrid2.Fill(datatbGrid2);
-            Grid2.DataSource = datatbGrid2;
+            string query = "SELECT * FROM Quanlydanhgia";
+            DataTable datatbGrid = dataProvider.ExecuteQuery_loaddata(query);
+            Grid2.DataSource = datatbGrid;
         }
         void LoaddataGrid2withCondition()
-        {
-            SqlConnection connectionGrid2 = new SqlConnection(chuoiketnoi);
-            SqlCommand commandGrid2 = connectionGrid2.CreateCommand();
-            
-            commandGrid2.CommandText = "SELECT * FROM Quanlythanhtoan where ((IDcar = '"+cB_idxe.Text+"') AND (IDcus = '"+cB_idnguoithue.Text+ "')) OR( (IDcus = '" + cB_idnguoithue.Text + "') OR (IDcar = '" + cB_idxe.Text + "'))" ;
-            DataTable datatbGrid2 = new DataTable();
-            SqlDataAdapter adapterGrid2 = new SqlDataAdapter();
-            adapterGrid2.SelectCommand = commandGrid2;
-            datatbGrid2.Clear();
-            adapterGrid2.Fill(datatbGrid2);
-            Grid2.DataSource = datatbGrid2;
+        {                    
+            string query = "SELECT * FROM Quanlythanhtoan where ((IDcar = '"+cB_idxe.Text+"') AND (IDcus = '"+cB_idnguoithue.Text+ "')) OR( (IDcus = '" + cB_idnguoithue.Text + "') OR (IDcar = '" + cB_idxe.Text + "'))" ;
+            DataTable datatbGrid2 = dataProvider.ExecuteQuery_loaddata(query);          
+            Grid1.DataSource = datatbGrid2;
         }
-
         // fill data    
         public void fillcB_idcar()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
+        {           
             string query1 = "select IDcar from Quanlyxe";
-
-            SqlCommand cmd = new SqlCommand(query1, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable datatb = new DataTable();
-            datatb.Columns.Add("IDcar", typeof(string));
-            datatb.Load(reader);
+            string query2 = "IDcar";           
+            DataTable datatb = dataProvider.ExecuteQuery_CBox(query1,query2);           
             cB_idxe.ValueMember = "IDcar";
-            cB_idxe.DataSource = datatb;
-            connection.Close();
-
+            cB_idxe.DataSource = datatb;         
         }
         public void fillcB_idkhachhang()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
+        {           
             string query1 = "select IDcus from Quanlykhachhang";
-
-            SqlCommand cmd = new SqlCommand(query1, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable datatb = new DataTable();
-            datatb.Columns.Add("IDcus", typeof(string));
-            datatb.Load(reader);
+            string query2 = "IDcus";           
+            DataTable datatb = dataProvider.ExecuteQuery_CBox(query1,query2);           
             cB_idnguoithue.ValueMember = "IDcus";
-            cB_idnguoithue.DataSource = datatb;
-            connection.Close();
+            cB_idnguoithue.DataSource = datatb;          
         }
         public void fillcB_uudai()
         {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
             string query1 = "select Uudai from Uudai";
-
-            SqlCommand cmd = new SqlCommand(query1, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable datatb = new DataTable();
-            datatb.Columns.Add("Uudai", typeof(string));
-            datatb.Load(reader);
+            string query2 = "Uudai";
+            DataTable datatb = dataProvider.ExecuteQuery_CBox(query1, query2);         
             cB_uudai.ValueMember = "Uudai";
-            cB_uudai.DataSource = datatb;
-            connection.Close();
+            cB_uudai.DataSource = datatb;          
         }
         public void filltB_Tenkhachhang()
-        {
-            SqlConnection connection = new SqlConnection(chuoiketnoi);
-            connection.Open();
-            string query = "select * from Quanlykhachhang where IDcus = '" + tB_idkhachhang.Text + "' ";
-            SqlCommand cmd = new SqlCommand(query, connection);
-            DataTable datatt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(datatt);
+        {         
+            string query = "select * from Quanlykhachhang where IDcus = '" + tB_idkhachhang.Text + "' ";         
+            DataTable datatt = dataProvider.ExecuteQuery_TBox(query);           
             foreach (DataRow dataRow in datatt.Rows)
             {
                 tB_tenkhachhang.Text = dataRow["Tenkhachhang"].ToString();
-            }
-            connection.Close();
+            }            
         }
-        private void Grid2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Grid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int i;
-            i = Grid2.CurrentRow.Index;
-            tB_idhopdong.Text = Grid2.Rows[i].Cells[0].Value.ToString();
-            tB_idkhachhang.Text = Grid2.Rows[i].Cells[1].Value.ToString();
-            tB_idxe.Text = Grid2.Rows[i].Cells[2].Value.ToString();
+            i = Grid1.CurrentRow.Index;
+            tB_idhopdong.Text = Grid1.Rows[i].Cells[0].Value.ToString();
+            tB_idkhachhang.Text = Grid1.Rows[i].Cells[1].Value.ToString();
+            tB_idxe.Text = Grid1.Rows[i].Cells[2].Value.ToString();
             filltB_Tenkhachhang();
-            tB_ngaytraxe.Text = Grid2.Rows[i].Cells[3].Value.ToString();
+            tB_ngaytraxe.Text = Grid1.Rows[i].Cells[3].Value.ToString();
             tB_uudai.Text = "0";
-            tB_tongtien.Text = Grid2.Rows[i].Cells[6].Value.ToString();
-
+            tB_tongtien.Text = Grid1.Rows[i].Cells[6].Value.ToString();
         }
         private void ResetData()
         {
@@ -160,11 +103,10 @@ namespace Quanlythuexe
         private void ReloadData()
         {
             this.Hide();
-            LoaddataGrid1();
-            LoaddataGrid2();
+            LoaddataGridDanhgia();
+            LoaddataGrid();
             this.Show();
         }
-
         //button
         private void bt_back_Click(object sender, EventArgs e)
         {
@@ -177,21 +119,31 @@ namespace Quanlythuexe
         }            
         private void BT_add_Click(object sender, EventArgs e)
         {
-            int i = Grid2.CurrentRow.Index;
+            int i = Grid1.CurrentRow.Index;
             Uudai uudai = new Uudai(cB_uudai.Text, int.Parse(tB_uudai.Text));
             uudai.ThemUD();
             tB_uudai.Text = uudai.PhanTramGiam.ToString();
         
-            long chiphi = long.Parse(Grid2.Rows[i].Cells[5].Value.ToString());
+            long chiphi = long.Parse(Grid1.Rows[i].Cells[5].Value.ToString());
             tB_tongtien.Text = uudai.TinhtienUD(chiphi).ToString();
         }
-
         private void BT_thanhtoan_Click(object sender, EventArgs e)
         {
-            Thanhtoan tt = new Thanhtoan(tB_idkhachhang.Text,long.Parse(tB_tongtien.Text),tB_idhopdong.Text);
+            Thanhtoan tt = new Thanhtoan(tB_idkhachhang.Text,long.Parse(tB_tongtien.Text),tB_idhopdong.Text,tB_idxe.Text);
             tt.XacNhanTT();
             ReloadData();
         }
- 
+        private void ResettB_uudai()
+        {
+            cB_uudai.Text = null;
+            tB_sophantramgiam.Text = null;
+        }
+        private void BT_themmauudai_Click(object sender, EventArgs e)
+        {
+            string query = "insert into Uudai values(N'" + cB_uudai.Text + "',N'" + tB_sophantramgiam.Text + "' )";
+            dataProvider.ExecuteQuery(query);
+            ResettB_uudai();
+            fillcB_uudai();
+        }
     }
 }

@@ -70,7 +70,7 @@
             this.bt_back.Name = "bt_back";
             this.bt_back.Size = new System.Drawing.Size(73, 23);
             this.bt_back.TabIndex = 18;
-            this.bt_back.Text = "<---";
+            this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
             this.bt_back.Click += new System.EventHandler(this.bt_back_Click);
             // 
@@ -80,7 +80,6 @@
             this.tB_idkhachhang.Name = "tB_idkhachhang";
             this.tB_idkhachhang.Size = new System.Drawing.Size(247, 22);
             this.tB_idkhachhang.TabIndex = 19;
-            
             // 
             // label1
             // 
@@ -209,7 +208,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel1);
@@ -218,15 +217,18 @@
             this.panel3.Size = new System.Drawing.Size(360, 512);
             this.panel3.TabIndex = 33;
             // 
-            // User
+            // FormKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_back);
             this.Controls.Add(this.GridKhachhang);
-            this.Name = "User";
+            this.Name = "FormKhachhang";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User";
             this.Load += new System.EventHandler(this.User_Load);
