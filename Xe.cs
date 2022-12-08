@@ -33,9 +33,7 @@ namespace Quanlythuexe
         {
             this.idCar = idCar;
         }
-
         public string IdCar { get; set; }
-
         public void ThemXe()
         {          
             string query = "insert into Quanlyxe values('" + idCar + "',N'" + bienSoxe + "', N'" + hangXe + "','" + giaThue + "',N'" + tinhTrangxe + "',N'" + tinhTrangthue + "')";

@@ -28,7 +28,6 @@ namespace Quanlythuexe
             fillcB_uudai();
             ResetData();
             Grid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
         }
         void LoaddataGrid()
         {
@@ -122,8 +121,7 @@ namespace Quanlythuexe
             int i = Grid1.CurrentRow.Index;
             Uudai uudai = new Uudai(cB_uudai.Text, int.Parse(tB_uudai.Text));
             uudai.ThemUD();
-            tB_uudai.Text = uudai.PhanTramGiam.ToString();
-        
+            tB_uudai.Text = uudai.PhanTramGiam.ToString();        
             long chiphi = long.Parse(Grid1.Rows[i].Cells[5].Value.ToString());
             tB_tongtien.Text = uudai.TinhtienUD(chiphi).ToString();
         }

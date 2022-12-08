@@ -33,8 +33,7 @@ namespace Quanlythuexe
         {
             Xe xe1 = new Xe(tB_id.Text,tB_hangxe.Text,tB_biensoxe.Text,long.Parse(tB_giathue.Text),cB_tinhtrangxe.Text,cB_tinhtrangthue.Text);
             xe1.ThemXe();
-            Loaddata();
-           
+            Loaddata();          
         }
         private void BT_sua_Click(object sender, EventArgs e)
         {

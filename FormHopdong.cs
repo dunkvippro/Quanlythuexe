@@ -65,8 +65,7 @@ namespace Quanlythuexe
             foreach (DataRow dataRow in datatb.Rows)
             {
                 tB_idchuxe.Text = dataRow["IDchuxe"].ToString();
-            }
-            
+            }           
         }
         public void filltB_Giathue()
         {           
@@ -117,12 +116,10 @@ namespace Quanlythuexe
         {
             Hopdong hd = new Hopdong(cB_idcar.Text, tB_biensoxe.Text, tB_idchuxe.Text, cB_idnguoithue.Text, dTP_ngaythue.Text, dTB_ngaytra.Text, long.Parse(tB_phithue.Text));
             hd.ThemHD();
-
             Xe xe = new Xe(cB_idcar.Text);
             xe.CapnhatTrangthaiXe(true);
             ReloadData();
         }
-
         private void BT_sua_Click(object sender, EventArgs e)
         {
             Hopdong hd = new Hopdong(cB_idcar.Text, tB_biensoxe.Text, tB_idchuxe.Text, cB_idnguoithue.Text, dTP_ngaythue.Text, dTB_ngaytra.Text, long.Parse(tB_phithue.Text));
@@ -133,7 +130,6 @@ namespace Quanlythuexe
         {
             Hopdong hd = new Hopdong(cB_idcar.Text);
             hd.XoaHD();
-
             Xe xe = new Xe(cB_idcar.Text);
             xe.CapnhatTrangthaiXe(false);
             ReloadData();         

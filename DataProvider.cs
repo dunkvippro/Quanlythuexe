@@ -19,10 +19,8 @@ namespace Quanlythuexe
             SqlConnection connection = new SqlConnection(connectionSTR);            
             connection.Open();
             SqlCommand command = new SqlCommand(query,connection);
-
             command.ExecuteNonQuery();
-            connection.Close();
-                      
+            connection.Close();                     
         }
         public DataTable ExecuteQuery_loaddata(string query)
         {

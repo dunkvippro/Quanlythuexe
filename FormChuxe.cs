@@ -72,7 +72,6 @@ namespace Quanlythuexe
             DataTable datatb = dataProvider.ExecuteQuery_CBox(query1, query2);          
             cB_idcar.ValueMember = "IDcar";
             cB_idcar.DataSource = datatb;       
-
         }
         public void filltB()
         {

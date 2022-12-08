@@ -13,7 +13,6 @@ namespace Quanlythuexe
 {
     public partial class FormXacNhanThanhToan : Form
     {
-
         private string idKhachhang;
         private string idhopdong;
         private long sotien;

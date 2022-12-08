@@ -20,11 +20,10 @@ namespace Quanlythuexe
         {
             this.tenUudai = tenuudai;
             this.phanTramGiam = phantramgiam;
-
         }
         public int PhanTramGiam { get => phanTramGiam; set => phanTramGiam = value; }
-        public void ThemUD(){
-                       
+        public void ThemUD()
+        {                      
             string query = "select * from Uudai where Uudai = N'" + tenUudai + "' ";            
             DataTable datatt = dataProvider.ExecuteQuery_TBox(query);          
             foreach (DataRow dataRow in datatt.Rows)

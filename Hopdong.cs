@@ -38,19 +38,16 @@ namespace Quanlythuexe
         public void ThemHD()
         {
             string query = "insert into Quanlyhopdong values('" + idCar + "','" + bienSoxe + "','" + idChuxe + "', '" + idKhachhang + "','" + ngayThue + "','" + ngayTra + "', '" + phiThue + "')";
-
             dataProvider.ExecuteQuery(query);         
         }
         public void XoaHD()
         {           
             string query = "DELETE FROM Quanlyhopdong WHERE IDcar = '" + idCar + "' ";
-
             dataProvider.ExecuteQuery(query);           
         }
         public void SuaHD()
         {
             string query = "UPDATE Quanlyhopdong SET Biensoxe = N'" + bienSoxe + "' , IDchuxe = N'" + idChuxe + "' ,IDkhachhang= N'" + idKhachhang + "' ,Ngaythue =  '" + ngayThue + "' , Ngaytra = N'" + ngayTra + "',Phithue =  N'" + phiThue + "' WHERE IDcar = '" + idCar + "' ";
-
             dataProvider.ExecuteQuery(query);           
         }
     }

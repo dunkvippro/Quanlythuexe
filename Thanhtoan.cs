@@ -31,14 +31,11 @@ namespace Quanlythuexe
         {
             FormXacNhanThanhToan xacnhanthanhtoan = new FormXacNhanThanhToan(idKhachhang, tongTien, idHopdong,idCar);
             xacnhanthanhtoan.ShowDialog();
-
         }
         public void XoaHopdong()
         {
             DataProvider dataProvider = new DataProvider();
-
             string query = "DELETE FROM Quanlythanhtoan WHERE IDhopdong = N'" + idHopdong + "' ";
-
             dataProvider.ExecuteQuery(query);           
         }
     }   

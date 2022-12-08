@@ -38,7 +38,6 @@ namespace Quanlythuexe
             sotienphaitra[soluongpt] = long.Parse(tB_chiphi.Text);
             sotienphaitra[soluongpt + 1] = 0;
             soluongpt++;
-
         }
         private void loaddatatB_tongtien()
         {
@@ -69,7 +68,6 @@ namespace Quanlythuexe
             long tong = sotienphaitra[lB_cacvande.SelectedIndex];
             Xoaptmang(sotienphaitra, lB_cacvande.SelectedIndex, soluongpt);
             soluongpt--;
-
             tB_tongtien.Text = (tongtien- tong).ToString();
             tongtien = tongtien - tong;
         }
@@ -88,7 +86,6 @@ namespace Quanlythuexe
         {
             filltB_chiphi();
         }
-
         //button
         private void BT_them_Click(object sender, EventArgs e)
         {

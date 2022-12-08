@@ -7,8 +7,7 @@ using System.Windows.Forms;
 namespace Quanlythuexe
 {
     internal static class Program
-    {
-       
+    {      
         [STAThread]
         static void Main()
         {
