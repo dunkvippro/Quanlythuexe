@@ -45,6 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridKhachhang)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,9 +67,9 @@
             // 
             // bt_back
             // 
-            this.bt_back.Location = new System.Drawing.Point(24, 12);
+            this.bt_back.Location = new System.Drawing.Point(39, 21);
             this.bt_back.Name = "bt_back";
-            this.bt_back.Size = new System.Drawing.Size(73, 23);
+            this.bt_back.Size = new System.Drawing.Size(102, 42);
             this.bt_back.TabIndex = 18;
             this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
@@ -217,12 +218,23 @@
             this.panel3.Size = new System.Drawing.Size(360, 512);
             this.panel3.TabIndex = 33;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Corbel", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(585, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(423, 41);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "DANH SÁCH KHÁCH HÀNG";
+            // 
             // FormKhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_back);
             this.Controls.Add(this.GridKhachhang);
@@ -238,6 +250,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,5 +272,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label5;
     }
 }

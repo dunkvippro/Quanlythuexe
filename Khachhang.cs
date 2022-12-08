@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Quanlythuexe
 {
-    public class Khachhang : Hopdong
+    public class Khachhang
     {
         private string idCus;
         private string tenKhachhang;

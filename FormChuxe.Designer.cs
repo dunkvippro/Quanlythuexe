@@ -47,6 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridChuxe)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,9 +56,9 @@
             // 
             // bt_back
             // 
-            this.bt_back.Location = new System.Drawing.Point(21, 23);
+            this.bt_back.Location = new System.Drawing.Point(51, 12);
             this.bt_back.Name = "bt_back";
-            this.bt_back.Size = new System.Drawing.Size(73, 23);
+            this.bt_back.Size = new System.Drawing.Size(95, 41);
             this.bt_back.TabIndex = 18;
             this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
@@ -239,12 +240,23 @@
             this.panel3.Size = new System.Drawing.Size(348, 546);
             this.panel3.TabIndex = 39;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Corbel", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(622, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(325, 41);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "DANH SÁCH CHỦ XE";
+            // 
             // FormChuxe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.GridChuxe);
             this.Controls.Add(this.bt_back);
@@ -260,6 +272,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,5 +297,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label6;
     }
 }

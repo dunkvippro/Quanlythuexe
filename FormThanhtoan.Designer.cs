@@ -35,6 +35,8 @@
             this.cB_idxe = new System.Windows.Forms.ComboBox();
             this.Grid1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tB_sophantramgiam = new System.Windows.Forms.TextBox();
+            this.BT_themmauudai = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cB_uudai = new System.Windows.Forms.ComboBox();
             this.BT_add = new System.Windows.Forms.Button();
@@ -62,8 +64,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.BT_themmauudai = new System.Windows.Forms.Button();
-            this.tB_sophantramgiam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grid1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,9 +74,9 @@
             // 
             // bt_back
             // 
-            this.bt_back.Location = new System.Drawing.Point(27, 21);
+            this.bt_back.Location = new System.Drawing.Point(36, 12);
             this.bt_back.Name = "bt_back";
-            this.bt_back.Size = new System.Drawing.Size(73, 23);
+            this.bt_back.Size = new System.Drawing.Size(85, 32);
             this.bt_back.TabIndex = 19;
             this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
@@ -148,10 +148,27 @@
             this.panel1.Size = new System.Drawing.Size(292, 144);
             this.panel1.TabIndex = 25;
             // 
+            // tB_sophantramgiam
+            // 
+            this.tB_sophantramgiam.Location = new System.Drawing.Point(147, 40);
+            this.tB_sophantramgiam.Name = "tB_sophantramgiam";
+            this.tB_sophantramgiam.Size = new System.Drawing.Size(112, 22);
+            this.tB_sophantramgiam.TabIndex = 28;
+            // 
+            // BT_themmauudai
+            // 
+            this.BT_themmauudai.Location = new System.Drawing.Point(149, 90);
+            this.BT_themmauudai.Name = "BT_themmauudai";
+            this.BT_themmauudai.Size = new System.Drawing.Size(126, 35);
+            this.BT_themmauudai.TabIndex = 27;
+            this.BT_themmauudai.Text = "Thêm mã ưu đãi";
+            this.BT_themmauudai.UseVisualStyleBackColor = true;
+            this.BT_themmauudai.Click += new System.EventHandler(this.BT_themmauudai_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 11);
+            this.label3.Location = new System.Drawing.Point(100, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 16);
             this.label3.TabIndex = 26;
@@ -177,6 +194,7 @@
             // 
             // BT_thanhtoan
             // 
+            this.BT_thanhtoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_thanhtoan.Location = new System.Drawing.Point(852, 508);
             this.BT_thanhtoan.Name = "BT_thanhtoan";
             this.BT_thanhtoan.Size = new System.Drawing.Size(292, 118);
@@ -192,7 +210,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(36, 342);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(310, 245);
+            this.panel2.Size = new System.Drawing.Size(311, 284);
             this.panel2.TabIndex = 27;
             // 
             // panel3
@@ -203,7 +221,7 @@
             this.panel3.Controls.Add(this.cB_idxe);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.cB_idnguoithue);
-            this.panel3.Location = new System.Drawing.Point(13, 21);
+            this.panel3.Location = new System.Drawing.Point(29, 52);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(254, 194);
             this.panel3.TabIndex = 28;
@@ -416,28 +434,11 @@
             this.label14.TabIndex = 45;
             this.label14.Text = "DANH SÁCH ĐÁNH GIÁ";
             // 
-            // BT_themmauudai
-            // 
-            this.BT_themmauudai.Location = new System.Drawing.Point(149, 90);
-            this.BT_themmauudai.Name = "BT_themmauudai";
-            this.BT_themmauudai.Size = new System.Drawing.Size(126, 35);
-            this.BT_themmauudai.TabIndex = 27;
-            this.BT_themmauudai.Text = "Thêm mã ưu đãi";
-            this.BT_themmauudai.UseVisualStyleBackColor = true;
-            this.BT_themmauudai.Click += new System.EventHandler(this.BT_themmauudai_Click);
-            // 
-            // tB_sophantramgiam
-            // 
-            this.tB_sophantramgiam.Location = new System.Drawing.Point(147, 40);
-            this.tB_sophantramgiam.Name = "tB_sophantramgiam";
-            this.tB_sophantramgiam.Size = new System.Drawing.Size(112, 22);
-            this.tB_sophantramgiam.TabIndex = 28;
-            // 
             // FormThanhtoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);

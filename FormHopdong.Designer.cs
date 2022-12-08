@@ -52,6 +52,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.BT_traxe = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridHopdong)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -60,9 +61,9 @@
             // 
             // bt_back
             // 
-            this.bt_back.Location = new System.Drawing.Point(12, 12);
+            this.bt_back.Location = new System.Drawing.Point(23, 12);
             this.bt_back.Name = "bt_back";
-            this.bt_back.Size = new System.Drawing.Size(73, 23);
+            this.bt_back.Size = new System.Drawing.Size(96, 40);
             this.bt_back.TabIndex = 18;
             this.bt_back.Text = "Back";
             this.bt_back.UseVisualStyleBackColor = true;
@@ -237,7 +238,7 @@
             this.GridHopdong.Name = "GridHopdong";
             this.GridHopdong.RowHeadersWidth = 51;
             this.GridHopdong.RowTemplate.Height = 24;
-            this.GridHopdong.Size = new System.Drawing.Size(693, 546);
+            this.GridHopdong.Size = new System.Drawing.Size(675, 546);
             this.GridHopdong.TabIndex = 39;
             this.GridHopdong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridHopdong_CellContentClick);
             // 
@@ -298,12 +299,23 @@
             this.panel2.Size = new System.Drawing.Size(372, 119);
             this.panel2.TabIndex = 41;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Corbel", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(638, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(387, 41);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "DANH SÁCH HỢP ĐỒNG";
+            // 
             // FormHopdong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.GridHopdong);
             this.Controls.Add(this.bt_back);
@@ -319,6 +331,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -348,5 +361,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button BT_traxe;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label8;
     }
 }
